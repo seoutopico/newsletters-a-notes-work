@@ -1,4 +1,6 @@
-# Guía técnica
+# Referencia técnica opcional
+
+Esta página documenta la implementación para el agente y para quien quiera mantener los scripts. Para utilizar el flujo conversando con ChatGPT Work, sigue el [README](../README.md#usarlo-desde-chatgpt-work). La preparación del entorno también se puede encargar a Work; estos comandos no son pasos manuales obligatorios para el usuario.
 
 ## Dependencias y ejecución
 

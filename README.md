@@ -1,6 +1,6 @@
 # De newsletters a Notes con ChatGPT Work
 
-Un ejemplo práctico para convertir un archivo de newsletters en ideas y borradores de Notes de Substack, usando cuatro skills locales y una estructura de carpetas compartida.
+Un ejemplo para trabajar conversando con **ChatGPT Work**: le pides que recupere newsletters, proponga ideas y redacte Notes para revisar. Las cuatro skills incluidas guardan el procedimiento para reutilizarlo en las siguientes tandas.
 
 El resultado se revisa antes de publicar. El proyecto no publica en Substack.
 
@@ -26,49 +26,53 @@ La publicación configurada como ejemplo es [Think & Hack, de Aina Lluna](https:
 | [Ejemplo editorial ficticio](ejemplos/README.md) | Ver la relación entre una fuente, una idea y una Note. |
 | [Contrato de carpetas](ESTRUCTURA.md) | Entender dónde se guarda todo y qué modifica cada skill. |
 | [Configuración](newsletter.config.json) | Publicación, fecha inicial, zona horaria y carpetas compartidas. |
-| [Guía técnica](docs/GUIA-TECNICA.md) | Dependencias, comandos, pruebas y límites del ejemplo. |
+| [Referencia técnica opcional](docs/GUIA-TECNICA.md) | Detalles de los scripts para mantenimiento; no es el recorrido de uso en Work. |
 
-## Probarlo en Work
+## Usarlo desde ChatGPT Work
 
-### 1. Preparar el proyecto local
+Este ejemplo está preparado para **Work en local**, con los archivos en una carpeta del proyecto. En la aplicación de escritorio, selecciona **Work** y **Trabajar en local / Work locally**. [Guía oficial de ChatGPT Work](https://learn.chatgpt.com/docs/get-started-with-work).
 
-Descarga este repositorio desde **Code → Download ZIP** y descomprímelo, o clónalo:
+### 1. Tener el ejemplo en tu proyecto
 
-```sh
-git clone https://github.com/seoutopico/newsletters-a-notes-work.git
-```
+Si las skills ya están disponibles en tu proyecto, pasa directamente al paso 2.
 
-En la aplicación de escritorio, crea o selecciona un **proyecto local** y vincula la carpeta descargada. Usa como carpeta principal aquella que contiene `README.md`, `newsletter.config.json` y `.agents/`.
+Si partes de este repositorio por primera vez, abre un proyecto local en Work y pídele:
 
-Este ejemplo necesita acceso a una carpeta del ordenador. Un proyecto de ChatGPT con archivos subidos y un proyecto local tienen formas distintas de acceder a las fuentes. Consulta la [documentación de proyectos](https://learn.chatgpt.com/docs/projects).
+> Prepara este proyecto para utilizar el ejemplo de https://github.com/seoutopico/newsletters-a-notes-work. Lee su README, incorpora las skills y sus archivos de apoyo conservando lo que ya exista. Comprueba el entorno disponible y prepara lo que necesiten los scripts. Explícame qué has preparado y avísame si algo impide continuar. Todavía no ejecutes el flujo.
 
-### 2. Instalar las dependencias
+**La preparación también se la encargas a Work.** Puede haber requisitos técnicos para los scripts, pero no tienes que empezar copiando comandos de instalación en una terminal. Work debe comprobar qué tiene disponible y resolver la preparación con las herramientas y permisos de su sesión.
 
-Necesitas Python 3.11 o posterior, `requests` y `tzdata`. Puedes pedirle a Work que compruebe el entorno e instale las dependencias del repositorio, o ejecutar desde su carpeta:
+El proyecto debe tener acceso a la carpeta donde se guarden las skills y el trabajo. [Documentación de proyectos locales](https://learn.chatgpt.com/docs/projects).
 
-```sh
-python -m pip install -r requirements.txt
-```
+### 2. Seleccionar el flujo y pedir el trabajo
 
-La lectura y redacción editorial las realiza Work. Estos scripts no necesitan una clave de la API de OpenAI.
-
-### 3. Revisar la configuración
-
-Abre `newsletter.config.json`. La configuración incluida usa Aina Lluna, la zona `Europe/Madrid` y una fecha inicial fija de ejemplo: **12 de septiembre de 2025**.
-
-Si quieres comenzar con los últimos doce meses, ajusta `desde` antes de la primera descarga. Después, mantenla: la biblioteca es acumulativa. El código no calcula una ventana móvil de doce meses en cada ejecución.
-
-Para otra publicación, cambia también las referencias de audiencia y voz en las skills editoriales. Cambiar solo la URL no convierte el estilo de Aina en el de otra persona.
-
-### 4. Lanzar el flujo completo
-
-Abre una nueva conversación en **Work**, dentro del proyecto local. Escribe **`@`**, busca **`flujo-newsletter`**, selecciónala y envía:
+Abre una conversación de Work dentro de ese proyecto. Escribe **`@`**, busca **`flujo-newsletter`**, selecciónala y envía:
 
 > Ejecuta el flujo completo en una tanda nueva: actualiza la biblioteca, prepara cinco ideas y redacta tres Notes. Abre las Notes para revisarlas. No publiques nada.
 
-La selección explícita de skills mediante `@` y su elección automática por descripción están descritas en la [documentación oficial de skills](https://learn.chatgpt.com/docs/build-skills). Si no aparece, comprueba la carpeta principal del proyecto y que existe `.agents/skills/flujo-newsletter/SKILL.md`; puedes pedir a Work que lea ese archivo de forma explícita.
+Elegir la skill en el menú la incorpora al mensaje; el trabajo empieza al pulsar **Enviar**. Para el flujo completo solo necesitas seleccionar `flujo-newsletter`. Tienes el [paso a paso de selección con @ y los nombres de las cuatro skills](prompts/05-usar-en-work.md#seleccionar-una-skill).
 
-**No necesitas usar los prompts de creación para ejecutar estas skills: ya vienen incluidas.**
+Work leerá las skills, utilizará sus scripts y realizará la parte editorial. Tú puedes seguir el progreso, corregir el rumbo y revisar los resultados.
+
+La selección de skills mediante `@` está descrita en la [documentación oficial](https://learn.chatgpt.com/docs/build-skills). Si no aparece tras preparar el proyecto, abre una conversación nueva dentro de él o pide a Work que lea `.agents/skills/flujo-newsletter/SKILL.md` explícitamente.
+
+**Los prompts de creación son material para aprender cómo se diseñaron las skills. Para utilizarlas no tienes que volver a crearlas.**
+
+### 3. Revisar y continuar en la conversación
+
+Cuando Work abra las Notes, puedes pedir cambios en la misma conversación:
+
+> Haz más concreta la apertura de la segunda Note. Mantén su idea central y conserva las otras dos.
+
+Los cambios se guardan en la misma tanda. Para otra tanda, pide una nueva ejecución del flujo.
+
+### Adaptar la publicación o el periodo
+
+El ejemplo utiliza Think & Hack, de Aina Lluna, y una fecha inicial fija: 12 de septiembre de 2025. Si quieres otro periodo, puedes decirle a Work antes de empezar:
+
+> Configura la primera descarga para cubrir los últimos doce meses. Si ya existe una biblioteca, conserva su fecha inicial y sus archivos.
+
+Para otra publicación, pídele que adapte tanto la configuración como las referencias de autor, audiencia y tono de las skills editoriales. Work mantiene estos ajustes en los archivos del proyecto para las siguientes ejecuciones.
 
 ## Cuatro formas de trabajar
 
@@ -92,7 +96,7 @@ Ejemplos completos para copiar: [usar el flujo en Work](prompts/05-usar-en-work.
 | [redactar-notes](.agents/skills/redactar-notes/SKILL.md) | Elegir tres ideas y escribir Notes respaldadas por las fuentes, separando texto y comentario editorial. |
 | [flujo-newsletter](.agents/skills/flujo-newsletter/SKILL.md) | Coordinar las tres anteriores y pasar la salida de cada una a la siguiente. |
 
-La coordinadora no repite los criterios editoriales de las otras skills. Los scripts gestionan descarga, archivos, versiones y estado; **no escriben las ideas y las Notes por sí solos**. Ejecutar únicamente `preparar` en una terminal deja una tanda pendiente de trabajo editorial.
+La coordinadora reutiliza las otras skills. Work realiza la lectura y redacción editorial, mientras los scripts le ayudan a descargar, organizar los archivos y conservar el estado de cada tanda.
 
 ## Dónde queda el trabajo
 
@@ -123,7 +127,7 @@ Cuando hayas revisado una ejecución manual, puedes pedir a Work una tarea local
 
 Las tareas con archivos locales necesitan que el ordenador esté encendido y que la aplicación esté abierta. Revisa estado e historial en **Tareas programadas / Scheduled**. Consulta la [documentación de tareas programadas](https://learn.chatgpt.com/docs/automations).
 
-Clonar este repositorio no crea ni activa ninguna programación.
+Preparar este ejemplo en tu proyecto no crea ni activa ninguna programación.
 
 ## Alcance y comprobaciones
 
