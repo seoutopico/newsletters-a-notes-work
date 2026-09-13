@@ -1,0 +1,4 @@
+interface:
+  display_name: "flujo-newsletter"
+  short_description: "Encadena descarga, ideas y Notes en carpetas fechadas"
+  default_prompt: "Usa $flujo-newsletter: actualiza el archivo, prioriza las novedades y aprovecha las newsletters guardadas cuando no haya cambios; crea ideas y Notes nuevas y guarda la ejecución ordenadamente."

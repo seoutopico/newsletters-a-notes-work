@@ -1,0 +1,4 @@
+interface:
+  display_name: "redactar-notes"
+  short_description: "Redacta tres Notes con tu tono para revisarlas"
+  default_prompt: "Usa $redactar-notes para elegir tres ideas, releer sus newsletters y guardar los borradores con comentarios editoriales en notes-para-revisar.md."

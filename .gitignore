@@ -1,0 +1,17 @@
+# Archivo local y trabajo editorial real
+/biblioteca/
+/tandas/
+
+# Entorno, credenciales y archivos temporales
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+prueba_newsletters_*/
+.DS_Store
+Thumbs.db

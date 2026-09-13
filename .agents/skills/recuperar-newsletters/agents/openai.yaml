@@ -1,0 +1,4 @@
+interface:
+  display_name: "recuperar-newsletters"
+  short_description: "Actualiza el archivo de newsletters de Aina Lluna"
+  default_prompt: "Usa $recuperar-newsletters para actualizar el archivo e indicar las newsletters añadidas, actualizadas y no recuperadas."

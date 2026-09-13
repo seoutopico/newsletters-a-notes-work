@@ -1,0 +1,4 @@
+interface:
+  display_name: "ideas-para-notes"
+  short_description: "Cinco enfoques para reutilizar newsletters en Notes"
+  default_prompt: "Usa $ideas-para-notes para leer las newsletters guardadas, proponer cinco enfoques distintos y guardar las propuestas en ideas-para-notes.md."
