@@ -1,141 +1,116 @@
-# De newsletters a Notes con ChatGPT Work
+# Tu primera prueba: de newsletters a Notes con ChatGPT Work
 
-Un ejemplo para trabajar conversando con **ChatGPT Work**: le pides que recupere newsletters, proponga ideas y redacte Notes para revisar. Las cuatro skills incluidas guardan el procedimiento para reutilizarlo en las siguientes tandas.
+Esta guía es para quien todavía no sabe usar Work ni ha utilizado una skill.
 
-El resultado se revisa antes de publicar. El proyecto no publica en Substack.
+Vas a pedirle a ChatGPT que descargue newsletters de Substack, encuentre cinco ideas y escriba tres **Notes**: publicaciones cortas para Substack que aporten algo útil y enlacen al artículo original. Al terminar tendrás documentos que podrás leer y corregir conversando con Work.
 
-```mermaid
-flowchart LR
-    A[API de Substack] --> B[Biblioteca de newsletters]
-    B --> C[5 ideas]
-    C --> D[3 Notes para revisar]
-    E[flujo-newsletter] -. coordina .-> B
-    E -. coordina .-> C
-    E -. coordina .-> D
-```
+**Para probarlo, sigue los pasos de esta página.** Puedes ver antes [una muestra del resultado](ejemplos/README.md). La muestra es ficticia; los textos de tu prueba se crearán a partir de las newsletters que se puedan recuperar.
 
-La publicación configurada como ejemplo es [Think & Hack, de Aina Lluna](https://ainalluna.substack.com). **Este repositorio contiene el procedimiento, los scripts y ejemplos ficticios; no incluye sus newsletters descargadas ni borradores privados.**
+## Tres palabras que encontrarás
 
-## Qué encontrarás
+- **Work** es la forma de trabajar con ChatGPT en la que le encargas una tarea y puede utilizar herramientas y archivos para entregarte un resultado.
+- **Proyecto local** es el espacio de trabajo al que das acceso a una carpeta de tu ordenador. Ahí quedarán guardados los documentos.
+- **Skill** es un procedimiento guardado que ChatGPT puede reutilizar. Este ejemplo ya incluye las skills necesarias. Las eliges desde el cuadro del mensaje escribiendo `@`.
 
-| Recurso | Para qué sirve |
-|---|---|
-| [Las cuatro skills](.agents/skills/) | Instrucciones que Work lee cuando ejecuta cada etapa. |
-| [Prompts para crearlas](prompts/README.md) | Reproducir el proceso de creación y entender qué pedir. |
-| [Prompts para utilizarlas](prompts/05-usar-en-work.md) | Lanzar el flujo, trabajar por etapas y continuar una tanda. |
-| [Ejemplo editorial ficticio](ejemplos/README.md) | Ver la relación entre una fuente, una idea y una Note. |
-| [Contrato de carpetas](ESTRUCTURA.md) | Entender dónde se guarda todo y qué modifica cada skill. |
-| [Configuración](newsletter.config.json) | Publicación, fecha inicial, zona horaria y carpetas compartidas. |
-| [Referencia técnica opcional](docs/GUIA-TECNICA.md) | Detalles de los scripts para mantenimiento; no es el recorrido de uso en Work. |
+Un **prompt** es simplemente la petición que escribes a ChatGPT. Más abajo encontrarás las peticiones listas para copiar.
 
 ## Usarlo desde ChatGPT Work
 
-Este ejemplo está preparado para **Work en local**, con los archivos en una carpeta del proyecto. En la aplicación de escritorio, selecciona **Work** y **Trabajar en local / Work locally**. [Guía oficial de ChatGPT Work](https://learn.chatgpt.com/docs/get-started-with-work).
+### 1. Abre Work y prepara una carpeta
 
-### 1. Tener el ejemplo en tu proyecto
+Necesitas la aplicación de escritorio de ChatGPT y acceso a Work con archivos locales. Este recorrido utiliza **Work locally / Trabajar en local** porque los resultados se guardan en tu ordenador. Si tu aplicación no muestra esa opción, comprueba la [guía oficial de acceso a Work](https://learn.chatgpt.com/docs/get-started-with-work) antes de continuar.
 
-Si las skills ya están disponibles en tu proyecto, pasa directamente al paso 2.
+1. Crea una carpeta en tu ordenador llamada **Mis newsletters**. Para la primera prueba, utiliza una carpeta vacía: será fácil reconocer lo que Work vaya guardando.
+2. En la sección **Proyectos** de ChatGPT, crea un proyecto para este trabajo. Puedes llamarlo también **Mis newsletters**.
+3. Abre el menú del proyecto y entra en **Edit project / Editar proyecto**. Usa **Add folder / Añadir carpeta** y elige la carpeta que acabas de crear. Si hay varias carpetas, establece esta como principal.
+4. Abre una conversación dentro de ese proyecto. Selecciona **Work** y comprueba que está activado **Work locally / Trabajar en local**.
 
-Si partes de este repositorio por primera vez, abre un proyecto local en Work y pídele:
+**Antes de seguir:** el proyecto debe tener asociada la carpeta de tu ordenador. Ponerle el mismo nombre al proyecto y a la carpeta no los conecta por sí solo. Puedes consultar estos controles en la [guía oficial de proyectos](https://learn.chatgpt.com/docs/projects).
 
-> Prepara este proyecto para utilizar el ejemplo de https://github.com/seoutopico/newsletters-a-notes-work. Lee su README, incorpora las skills y sus archivos de apoyo conservando lo que ya exista. Comprueba el entorno disponible y prepara lo que necesiten los scripts. Explícame qué has preparado y avísame si algo impide continuar. Todavía no ejecutes el flujo.
+Si ya tienes este ejemplo preparado en un proyecto, abre ese proyecto y pasa al paso 3.
 
-**La preparación también se la encargas a Work.** Puede haber requisitos técnicos para los scripts, pero no tienes que empezar copiando comandos de instalación en una terminal. Work debe comprobar qué tiene disponible y resolver la preparación con las herramientas y permisos de su sesión.
+### 2. Pídele a Work que prepare el ejemplo
 
-El proyecto debe tener acceso a la carpeta donde se guarden las skills y el trabajo. [Documentación de proyectos locales](https://learn.chatgpt.com/docs/projects).
+Este repositorio de GitHub es la carpeta pública que contiene las instrucciones y los archivos del ejemplo. Copia la siguiente petición en el cuadro del mensaje de Work y pulsa **Enviar**. En este paso todavía no tienes que seleccionar ninguna skill:
 
-### 2. Seleccionar el flujo y pedir el trabajo
+> Prepara en la carpeta principal de este proyecto el ejemplo de https://github.com/seoutopico/newsletters-a-notes-work. Lee su README e incorpora las cuatro skills y sus archivos de apoyo. Conserva lo que ya exista y comprueba que puedes leer y escribir en la carpeta. Revisa el entorno y prepara lo necesario para ejecutar los scripts. Para esta primera prueba, utiliza la publicación de Aina Lluna que incluye el ejemplo y configura la descarga de los últimos doce meses. Si ya existe una biblioteca, conserva su configuración y sus archivos. Al terminar, dime qué carpeta has utilizado, si la preparación está completa y cómo encontrar flujo-newsletter con @. Todavía no ejecutes el flujo.
 
-Abre una conversación de Work dentro de ese proyecto. Escribe **`@`**, busca **`flujo-newsletter`**, selecciónala y envía:
+Espera a que Work termine. **El resultado de este paso es tener el ejemplo preparado**, todavía sin las cinco ideas ni las tres Notes. Si necesita acceso a la carpeta o alguna autorización, te lo indicará; si informa de un problema, resuélvelo en esa conversación antes de pasar al siguiente paso.
 
-> Ejecuta el flujo completo en una tanda nueva: actualiza la biblioteca, prepara cinco ideas y redacta tres Notes. Abre las Notes para revisarlas. No publiques nada.
+La publicación de esta prueba es [Think & Hack, de Aina Lluna](https://ainalluna.substack.com). Sus newsletters reales no vienen incluidas en GitHub: Work las descargará cuando ejecutes el flujo.
 
-Elegir la skill en el menú la incorpora al mensaje; el trabajo empieza al pulsar **Enviar**. Para el flujo completo solo necesitas seleccionar `flujo-newsletter`. Tienes el [paso a paso de selección con @ y los nombres de las cuatro skills](prompts/05-usar-en-work.md#seleccionar-una-skill).
+### 3. Selecciona la skill con @ y lanza la prueba
 
-Work leerá las skills, utilizará sus scripts y realizará la parte editorial. Tú puedes seguir el progreso, corregir el rumbo y revisar los resultados.
+Abre una **conversación nueva dentro del mismo proyecto**, en Work y con trabajo local seleccionado. Así podrás comprobar si aparecen las skills que acabas de preparar.
 
-La selección de skills mediante `@` está descrita en la [documentación oficial](https://learn.chatgpt.com/docs/build-skills). Si no aparece tras preparar el proyecto, abre una conversación nueva dentro de él o pide a Work que lea `.agents/skills/flujo-newsletter/SKILL.md` explícitamente.
+1. Haz clic en el cuadro donde escribes tus mensajes.
+2. Escribe **`@`** para abrir el selector.
+3. Busca **`flujo-newsletter`** y **haz clic en ese resultado**.
+4. Con la skill seleccionada en el mensaje, añade esta petición y pulsa **Enviar**:
 
-**Los prompts de creación son material para aprender cómo se diseñaron las skills. Para utilizarlas no tienes que volver a crearlas.**
+> Ejecuta el flujo completo en una tanda nueva. Actualiza la biblioteca, prepara cinco ideas y redacta tres Notes. Si no hay newsletters nuevas, continúa con las que ya están guardadas y busca enfoques distintos de los anteriores. Abre las Notes para revisarlas conmigo y dime qué has añadido, actualizado o dejado pendiente. No publiques nada.
 
-### 3. Revisar y continuar en la conversación
+**Una tanda es un grupo de ideas y Notes creado en esta ejecución.** La skill `flujo-newsletter` se encarga de coordinar la descarga, las ideas y la redacción. Para la prueba completa basta con seleccionar esa skill.
 
-Cuando Work abra las Notes, puedes pedir cambios en la misma conversación:
+Seleccionarla añade la skill al mensaje; **Enviar** inicia el trabajo. No queda programada para repetirse. La selección mediante `@` está descrita en la [guía oficial de skills](https://learn.chatgpt.com/docs/build-skills).
 
-> Haz más concreta la apertura de la segunda Note. Mantén su idea central y conserva las otras dos.
+Si no aparece en el menú, sigue [estos pasos para comprobarlo](prompts/05-usar-en-work.md#si-la-skill-no-aparece).
 
-Los cambios se guardan en la misma tanda. Para otra tanda, pide una nueva ejecución del flujo.
+### 4. Lee y corrige el resultado
 
-### Adaptar la publicación o el periodo
+Work debería entregarte un resumen y enlaces a los documentos creados. El objetivo es obtener **cinco ideas y tres Notes para revisar**. Si no dispone de suficientes artículos completos o encuentra un fallo, debe explicarte qué falta y qué ha podido hacer.
 
-El ejemplo utiliza Think & Hack, de Aina Lluna, y una fecha inicial fija: 12 de septiembre de 2025. Si quieres otro periodo, puedes decirle a Work antes de empezar:
+Abre **notes-para-revisar.md** desde el enlace que te dé. La extensión `.md` indica un documento de texto que puedes leer en Work. Encontrarás cada propuesta separada de una breve explicación editorial: el texto publicable es el que utilizarías en Substack.
 
-> Configura la primera descarga para cubrir los últimos doce meses. Si ya existe una biblioteca, conserva su fecha inicial y sus archivos.
+Puedes corregirlas en la misma conversación. Por ejemplo, envía:
 
-Para otra publicación, pídele que adapte tanto la configuración como las referencias de autor, audiencia y tono de las skills editoriales. Work mantiene estos ajustes en los archivos del proyecto para las siguientes ejecuciones.
+> Haz más concreta la apertura de la segunda Note y acorta su ejemplo. Conserva su idea central, el enlace y las otras dos Notes. Guarda los cambios en el mismo documento y ábrelo otra vez.
 
-## Cuatro formas de trabajar
+**La prueba está terminada cuando puedes abrir y revisar esos textos.** Guardar las propuestas no las publica en Substack; la publicación queda fuera de este flujo.
 
-| Forma | Qué pedir |
+## Dónde se guarda cada cosa
+
+Dentro de la carpeta **Mis newsletters**, el trabajo se organiza así:
+
+| Qué quieres consultar | Dónde lo encontrarás |
 |---|---|
-| Todo seguido | Seleccionar `flujo-newsletter` y pedir las tres etapas completas. |
-| Revisar antes de redactar | Seleccionar `flujo-newsletter` y añadir: «Detente después de las ideas y espera mis correcciones». |
-| Solo una etapa | Seleccionar `recuperar-newsletters`, `ideas-para-notes` o `redactar-notes`, según lo que falte. |
-| Continuar otro día | Volver a la conversación y pedir que continúe la misma tanda desde la etapa pendiente. |
+| Newsletters descargadas | `biblioteca/articulos/` |
+| Lista de newsletters disponibles | `biblioteca/INDICE.md` |
+| Ideas de una prueba | `tandas/FECHA-HORA/ideas-para-notes.md` |
+| Notes para corregir | `tandas/FECHA-HORA/notes-para-revisar.md` |
+| Qué se hizo y qué quedó pendiente | `tandas/FECHA-HORA/RESUMEN.md` |
 
-Una conversación por tanda suele facilitar la revisión. Si continúas en otra conversación del mismo proyecto, indica la carpeta concreta de la tanda: las referencias persistentes viven en los archivos, no dependen de recordar todo el chat anterior.
+`FECHA-HORA` representa el nombre que Work pone a cada tanda, por ejemplo `2026-09-13_10-30-00`. Cada tanda nueva tiene su propia carpeta. Las newsletters se conservan en una biblioteca común para poder reutilizarlas.
 
-Ejemplos completos para copiar: [usar el flujo en Work](prompts/05-usar-en-work.md).
+No necesitas recorrer las carpetas para empezar: puedes decir **«Abre las Notes de esta tanda»**. Los archivos de control que también encontrarás ayudan a Work a recordar qué ha descargado y qué queda por hacer.
 
-## Qué hace cada skill
+## La próxima vez
 
-| Skill | Responsabilidad |
+Vuelve a este proyecto, abre una conversación de Work, selecciona **`@` → `flujo-newsletter`** y envía de nuevo la petición del paso 3. La preparación del paso 2 solo es necesaria la primera vez.
+
+Work incorporará las newsletters nuevas, actualizará las que hayan cambiado y preparará otra tanda. **Si la descarga no tiene novedades, el trabajo editorial continúa con las newsletters guardadas.** Si no hay ninguna fuente completa disponible, debe explicar el bloqueo.
+
+Para continuar corrigiendo los textos anteriores, vuelve a su conversación y pide que siga con esa misma tanda.
+
+## Cuando ya hayas probado el flujo
+
+- [Peticiones listas para copiar](prompts/05-usar-en-work.md): revisar las ideas antes de redactar, ejecutar una sola etapa, continuar otro día o programar el trabajo.
+- [Cambiar la publicación del ejemplo](prompts/05-usar-en-work.md#utilizar-tu-propia-newsletter): adaptar las fuentes y el tono a tu publicación.
+- [Prompts para crear tus propias skills](prompts/README.md#crear-las-skills-opcional): aprender a construir este proceso desde cero. Las de este ejemplo ya están creadas.
+
+## Referencia opcional
+
+Esta parte sirve para entender o mantener el funcionamiento interno una vez que lo hayas probado.
+
+| Archivo | Qué explica |
 |---|---|
-| [recuperar-newsletters](.agents/skills/recuperar-newsletters/SKILL.md) | Consultar la API, paginar, incorporar novedades, actualizar versiones y señalar extractos o fallos. |
-| [ideas-para-notes](.agents/skills/ideas-para-notes/SKILL.md) | Leer fuentes completas y proponer cinco enfoques con utilidad propia y una conexión al original. |
-| [redactar-notes](.agents/skills/redactar-notes/SKILL.md) | Elegir tres ideas y escribir Notes respaldadas por las fuentes, separando texto y comentario editorial. |
-| [flujo-newsletter](.agents/skills/flujo-newsletter/SKILL.md) | Coordinar las tres anteriores y pasar la salida de cada una a la siguiente. |
+| [Skills del proyecto](.agents/skills/) | Los procedimientos que sigue Work. |
+| [Estructura de carpetas](ESTRUCTURA.md) | Cómo se relacionan las fuentes, las ideas y las Notes. |
+| [Configuración](newsletter.config.json) | Publicación, periodo y carpetas. La copia incluida parte del 12 de septiembre de 2025; el paso 2 pide ajustar la primera descarga. |
+| [Guía técnica](docs/GUIA-TECNICA.md) | Scripts, requisitos y comprobaciones para mantenimiento. |
 
-La coordinadora reutiliza las otras skills. Work realiza la lectura y redacción editorial, mientras los scripts le ayudan a descargar, organizar los archivos y conservar el estado de cada tanda.
+La recuperación utiliza la API de lectura de Substack. Señala extractos y errores y conserva las copias completas anteriores cuando una descarga falla. No recupera contenido privado sin acceso; los recursos multimedia quedan enlazados. La disponibilidad de la API puede cambiar.
 
-## Dónde queda el trabajo
+El repositorio incluye procedimientos y ejemplos ficticios, sin newsletters descargadas ni borradores privados. Las carpetas de resultados están excluidas de las subidas habituales a GitHub; si cambias sus nombres, hay que adaptar también esas exclusiones.
 
-Las carpetas de datos se generan al utilizar el flujo; no vienen con contenido real en el repositorio.
-
-```text
-biblioteca/
-  articulos/                 Una copia actual por newsletter
-  INDICE.md
-  control/                   Inventario, respuestas actuales e informes
-    historial/               Versiones anteriores cuando cambia una fuente
-
-tandas/
-  AAAA-MM-DD_HH-mm-ss/
-    ideas-para-notes.md
-    notes-para-revisar.md
-    RESUMEN.md
-    estado.json
-```
-
-Una tanda contiene sus ideas y sus Notes juntas. Las fuentes se referencian por ID y versión; no se copian en cada tanda. Las tres skills utilizan la misma estructura, también al ejecutarse por separado.
-
-**«Sin novedades en la descarga» no significa «sin trabajo editorial».** Si hay newsletters guardadas y pendientes de aprovechar, el flujo continúa con ellas. Si ya hay propuestas, busca enfoques distintos y mantiene el historial para evitar repeticiones.
-
-## Programarlo después de probarlo
-
-Cuando hayas revisado una ejecución manual, puedes pedir a Work una tarea local que invoque `flujo-newsletter` con la frecuencia que quieras. El prompt de ejemplo está en [usar el flujo](prompts/05-usar-en-work.md#programación-opcional).
-
-Las tareas con archivos locales necesitan que el ordenador esté encendido y que la aplicación esté abierta. Revisa estado e historial en **Tareas programadas / Scheduled**. Consulta la [documentación de tareas programadas](https://learn.chatgpt.com/docs/automations).
-
-Preparar este ejemplo en tu proyecto no crea ni activa ninguna programación.
-
-## Alcance y comprobaciones
-
-- La API de lectura de Substack puede cambiar. Los errores se registran y las copias completas anteriores se conservan.
-- «Completo» describe el cuerpo público devuelto por la API, sin bloqueo explícito detectado; no acredita acceso a una edición privada.
-- No se eluden suscripciones. Las imágenes y recursos multimedia quedan enlazados.
-- La prueba automatizada del paquete cubre 18 casos de descarga, conservación y continuidad. No mide calidad editorial ni garantiza que la API siga disponible.
-- El material de `ejemplos/` es ficticio y no se presenta como una ejecución real.
-- `.gitignore` excluye la biblioteca y las tandas locales. Si cambias sus nombres, adapta también esas exclusiones antes de subir tus resultados a GitHub.
-
-Las indicaciones de interfaz se contrastaron con documentación oficial el 13 de septiembre de 2026; la interfaz y la disponibilidad pueden variar por versión o cuenta.
+Las indicaciones sobre Work se contrastaron con documentación oficial el 13 de septiembre de 2026. Los nombres y la disponibilidad de los controles pueden variar según la versión o la cuenta.

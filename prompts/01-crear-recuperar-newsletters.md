@@ -1,5 +1,11 @@
 # Crear recuperar-newsletters
 
+Este archivo sirve para pedirle a Work que cree esta skill desde cero. Si quieres utilizar las que ya vienen preparadas, sigue [la guía de uso](05-usar-en-work.md). Para recrearlas, consulta primero [el orden de creación](README.md#crear-las-skills-opcional).
+
+Copia la petición que sigue y envíala en Work dentro de tu proyecto de prueba.
+
+## Petición para copiar
+
 Crea una skill local llamada `recuperar-newsletters` en `.agents/skills/` de este proyecto.
 
 Debe descargar las newsletters de https://ainalluna.substack.com mediante su API de lectura. La primera ejecución cubrirá los últimos 12 meses; las siguientes incorporarán nuevas publicaciones y actualizarán las modificadas, conservando el archivo acumulado.

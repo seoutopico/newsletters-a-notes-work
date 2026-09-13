@@ -1,5 +1,7 @@
 # Carpetas y relevo entre skills
 
+Referencia para Work y para quien quiera entender la organización de los archivos. Para hacer tu primera prueba, empieza por [la guía desde cero](README.md#usarlo-desde-chatgpt-work).
+
 La biblioteca conserva las newsletters. Las tandas agrupan el trabajo editorial que se hace con ellas. Una descarga actualiza la biblioteca; una tanda pasa de ideas a Notes sin cambiar de carpeta.
 
 ## Estructura compartida

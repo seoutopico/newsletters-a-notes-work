@@ -1,14 +1,26 @@
-# Prompts
+# Peticiones para usar el ejemplo o aprender a crearlo
 
-**Para lanzar el flujo en Work:** entra en el proyecto local, escribe **`@`**, busca **`flujo-newsletter`**, selecciónala en el menú, añade tu petición y pulsa **Enviar**.
+Un **prompt** es una petición que copias en el cuadro del mensaje de Work y envías a ChatGPT.
 
-El [paso a paso para seleccionar y usar las skills](05-usar-en-work.md#seleccionar-una-skill) explica qué elegir para el flujo completo o para cada etapa. Las skills ya vienen creadas en este repositorio.
+## Quiero probarlo: empieza aquí
 
-Los siguientes prompts sirven para reproducir su creación en un proyecto nuevo. Úsalos en orden para que todas compartan la misma arquitectura:
+Las skills de este repositorio **ya están creadas**. Para probar el ejemplo:
 
-1. [Crear recuperar-newsletters](01-crear-recuperar-newsletters.md).
-2. [Crear ideas-para-notes](02-crear-ideas-para-notes.md).
-3. [Crear redactar-notes](03-crear-redactar-notes.md).
-4. [Crear flujo-newsletter](04-crear-flujo-newsletter.md).
+1. Sigue [el README desde el primer paso](../README.md#usarlo-desde-chatgpt-work): abrir Work, conectar una carpeta y preparar el ejemplo.
+2. Selecciona la skill escribiendo **`@`** en el cuadro del mensaje y eligiendo **`flujo-newsletter`** en el menú.
+3. Añade [la petición para probar el flujo entero](05-usar-en-work.md#probar-el-flujo-entero) y pulsa **Enviar**.
 
-Cada archivo contiene un prompt listo para copiar. Si ya existe material en el proyecto de destino, el agente debe reutilizarlo y conservarlo. Los prompts definen el resultado esperado; la respuesta concreta del agente puede variar.
+La guía [Qué pedirle a Work](05-usar-en-work.md) también explica cómo revisar las ideas antes de redactar, corregir las Notes, continuar otro día y programar el trabajo. Cada ejemplo indica qué seleccionar, qué enviar y qué resultado esperar.
+
+## Crear las skills (opcional)
+
+Los archivos numerados del 01 al 04 sirven para **pedirle a Work que construya las skills desde cero**. Son material para aprender o diseñar tu propia versión; no son los pasos necesarios para utilizar las skills incluidas.
+
+Si quieres probar su creación, utiliza otro proyecto con una carpeta vacía. Abre cada archivo, copia el apartado «Petición para copiar» y envíalo en Work. Espera a que termine un paso antes de pasar al siguiente:
+
+1. [Crear recuperar-newsletters](01-crear-recuperar-newsletters.md): guardar el procedimiento de descarga.
+2. [Crear ideas-para-notes](02-crear-ideas-para-notes.md): convertir las fuentes en propuestas de enfoques.
+3. [Crear redactar-notes](03-crear-redactar-notes.md): convertir las ideas en borradores para revisar.
+4. [Crear flujo-newsletter](04-crear-flujo-newsletter.md): coordinar las tres anteriores.
+
+Cada petición aprovecha lo creado en la anterior. Los resultados concretos pueden variar: conviene revisar y probar las skills que Work cree antes de programar su ejecución.

@@ -1,5 +1,11 @@
 # Crear redactar-notes
 
+Este archivo sirve para pedirle a Work que cree esta skill desde cero. Si quieres utilizar las que ya vienen preparadas, sigue [la guía de uso](05-usar-en-work.md). Para recrearlas, consulta primero [el orden de creación](README.md#crear-las-skills-opcional).
+
+Copia la petición que sigue y envíala en Work dentro de tu proyecto de prueba.
+
+## Petición para copiar
+
 Crea una skill local llamada `redactar-notes` en `.agents/skills/` de este proyecto.
 
 Lee `ESTRUCTURA.md`, `newsletter.config.json` y la skill `ideas-para-notes`. Su entrada serán las ideas y las referencias de fuentes de una tanda existente.

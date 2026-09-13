@@ -1,101 +1,144 @@
-# Usar las skills en Work
+# Qué pedirle a Work: ejemplos para copiar
 
-Esta guía explica qué hacer en la interfaz de **ChatGPT Work**. Las skills ya están creadas: para usarlas, las seleccionas y les pides el trabajo.
+Un **prompt** es la petición que envías a ChatGPT. Aquí tienes peticiones para utilizar las skills del ejemplo.
+
+**Si es tu primera vez, empieza por [la guía desde cero](../README.md#usarlo-desde-chatgpt-work).** Allí se explica cómo abrir Work, conectar una carpeta y preparar el proyecto. Los ejemplos de esta página se utilizan después de esa preparación.
 
 ## Seleccionar una skill
 
-1. Abre la aplicación de escritorio y entra en el **proyecto local** que contiene este ejemplo.
-2. Abre una conversación en **Work**, con **Trabajar en local / Work locally** seleccionado.
-3. Haz clic en el cuadro donde escribes el mensaje y escribe **`@`**.
-4. En el selector que se abre, busca el nombre de la skill. Para el flujo completo, busca **`flujo-newsletter`** y **selecciona su resultado en el menú**.
-5. Con la skill seleccionada, añade la petición del ejemplo que quieras utilizar.
-6. Pulsa **Enviar**. Work utilizará las instrucciones de esa skill para realizar el encargo.
+Cada ejemplo indica qué skill elegir antes de enviar la petición:
 
-**Escribir `@` abre el selector. Elegir una skill la incorpora al mensaje. El trabajo empieza cuando envías la petición.** La selección no crea una tarea programada ni activa ejecuciones permanentes.
+1. Abre una conversación de **Work dentro del proyecto donde preparaste el ejemplo**. Comprueba que utiliza **Work locally / Trabajar en local**.
+2. En el cuadro del mensaje, escribe **`@`**.
+3. Busca el nombre que indica el ejemplo y **selecciónalo en el menú**.
+4. Añade la petición copiada y pulsa **Enviar**.
 
-Para seleccionar expresamente una skill, elige el resultado del menú: copiar su nombre como texto normal no es el mismo gesto. Work también puede elegir skills a partir de lo que le pidas, pero aquí usamos la selección explícita para que quede claro cuál debe aplicar. [Documentación oficial sobre invocación de skills](https://learn.chatgpt.com/docs/build-skills).
-
-## Qué nombre buscar después de escribir @
-
-| Qué quieres hacer | Skill que debes seleccionar |
-|---|---|
-| Descargar, sacar ideas y redactar Notes | `flujo-newsletter` |
-| Solo descargar o actualizar newsletters | `recuperar-newsletters` |
-| Preparar ideas con las newsletters guardadas | `ideas-para-notes` |
-| Redactar o corregir Notes a partir de las ideas | `redactar-notes` |
-
-Para el flujo completo basta con seleccionar **`flujo-newsletter`**: esa skill coordina las otras tres.
-
-## Si la skill no aparece en el selector
-
-Comprueba que estás en el proyecto local adecuado y que contiene las cuatro carpetas de skills. Si acabas de incorporarlas, abre una conversación nueva dentro de ese proyecto y vuelve a probar `@`.
-
-Puedes pedirle a Work que lo compruebe:
-
-> Comprueba que este proyecto contiene .agents/skills/flujo-newsletter/SKILL.md y sus tres skills asociadas. Si están disponibles, explícame cómo seleccionarlas. Todavía no ejecutes el flujo.
-
-También puedes indicarle explícitamente que lea el `SKILL.md` correspondiente cuando no consigas seleccionarlo. Esta alternativa le señala el archivo de instrucciones; no garantiza que aparezca en el menú.
-
-Los ejemplos siguientes son peticiones para enviar después de seleccionar la skill indicada.
-
-## Preparar el proyecto por primera vez
-
-Si todavía no tienes las skills en tu proyecto, puedes encargarle la preparación a Work:
-
-> Prepara este proyecto con el ejemplo de https://github.com/seoutopico/newsletters-a-notes-work. Lee el README, incorpora las skills y los archivos de apoyo, comprueba qué necesita el entorno y prepara lo que falte. Conserva mis archivos existentes. Todavía no ejecutes el flujo.
-
-Si ya tienes las skills disponibles, omite esta preparación.
+Escribir un nombre como texto no es lo mismo que seleccionarlo en el menú. Elegir la skill la añade al mensaje; enviar la petición ejecuta el encargo. No se programa ninguna repetición por seleccionarla. [Documentación oficial de skills](https://learn.chatgpt.com/docs/build-skills).
 
 ## Probar el flujo entero
 
-Escribe **`@`**, selecciona **`flujo-newsletter`** en el menú y después envía:
+**Úsalo cuando:** quieras pasar de la descarga a los borradores en una sola petición.
 
-> Ejecuta el flujo completo en una tanda nueva. Actualiza la biblioteca, prepara cinco ideas y redacta tres Notes. Si no hay newsletters nuevas, continúa con las guardadas y busca enfoques distintos de los anteriores. Guarda todo según la estructura del proyecto y abre las Notes para revisarlas. No publiques nada.
+**Selecciona con `@`:** `flujo-newsletter`.
+
+**Copia y envía:**
+
+> Ejecuta el flujo completo en una tanda nueva. Actualiza la biblioteca, prepara cinco ideas y redacta tres Notes. Si no hay newsletters nuevas, continúa con las guardadas y busca enfoques distintos de los anteriores. Abre las Notes para revisarlas conmigo y dime qué has añadido, actualizado o dejado pendiente. No publiques nada.
+
+**Qué recibirás:** una nueva carpeta con ideas, Notes y un resumen. Si faltan fuentes completas, Work debe explicar qué no ha podido completar. Puedes pedir cambios en esa misma conversación.
 
 ## Revisar las ideas antes de redactar
 
-Escribe **`@`**, selecciona **`flujo-newsletter`** en el menú y después envía:
+**Úsalo cuando:** quieras decidir los enfoques antes de que Work escriba las Notes.
+
+**Selecciona con `@`:** `flujo-newsletter`.
+
+**Copia y envía:**
 
 > Actualiza la biblioteca y prepara cinco ideas en una tanda nueva. Detente después de las ideas y ábrelas para revisarlas conmigo. Espera mis correcciones antes de redactar las Notes.
 
-Después de revisarlas, en la misma conversación escribe **`@`**, selecciona **`redactar-notes`** y envía:
+**Qué recibirás:** el documento de ideas. Todavía no habrá Notes nuevas.
 
-> Continúa esta tanda con redactar-notes. Utiliza las ideas I01, I03 e I05, incorporando mis correcciones. Lee sus originales y guarda las tres Notes junto a las ideas.
+Cuando hayas revisado las ideas, sigue en esa conversación. Selecciona **`@` → `redactar-notes`** y envía, por ejemplo:
 
-## Solo actualizar la biblioteca
+> Continúa esta tanda. Elige las tres ideas con más potencial, teniendo en cuenta mis comentarios. Lee las newsletters originales completas, redacta las tres Notes y abre el documento para revisarlo. No publiques nada.
 
-Escribe **`@`**, selecciona **`recuperar-newsletters`** en el menú y después envía:
+Si prefieres elegir tú, sustituye la frase «Elige las tres ideas con más potencial» por los números o nombres de las ideas que quieras utilizar.
 
-> Actualiza las newsletters. Dime cuáles has añadido, cuáles has actualizado y cuáles no has podido recuperar. Abre una para comprobar la descarga.
+## Corregir las Notes
 
-## Crear ideas sin descargar de nuevo
+**Úsalo cuando:** ya tengas borradores y quieras ajustarlos.
 
-Escribe **`@`**, selecciona **`ideas-para-notes`** en el menú y después envía:
+En la conversación de esa tanda, selecciona **`@` → `redactar-notes`** y envía:
 
-> Trabaja con la biblioteca guardada y crea una tanda nueva con cinco enfoques distintos. Lee completas las fuentes elegidas. No descargues de nuevo ni redactes todavía las Notes.
+> Revisa la segunda Note de esta tanda: quiero una apertura más concreta y una explicación más breve del ejemplo. Conserva las otras dos Notes y mis cambios anteriores. Guarda los cambios en el mismo documento y ábrelo para revisarlo.
 
-## Redactar a partir de ideas existentes
+**Qué recibirás:** el documento actualizado en la misma carpeta. Cambia «segunda Note» y las correcciones por lo que quieras revisar.
 
-Escribe **`@`**, selecciona **`redactar-notes`** en el menú y después envía lo siguiente, sustituyendo FECHA por la carpeta real:
+## Hacer solo una parte del trabajo
 
-> Usa las ideas de tandas/FECHA. Elige las tres con mejor combinación de utilidad propia, respaldo y variedad. Redacta las Notes y guárdalas en esa misma tanda. Abre el resultado para revisión.
+### Solo descargar o actualizar newsletters
 
-## Retomar una tanda
+**Selecciona con `@`:** `recuperar-newsletters`.
 
-Escribe **`@`**, selecciona **`flujo-newsletter`** y envía lo siguiente, sustituyendo FECHA por la carpeta real:
+> Actualiza las newsletters de este proyecto. Dime cuáles has añadido, cuáles has actualizado y cuáles no has podido recuperar. Abre una para comprobar la descarga. No prepares ideas ni Notes todavía.
 
-> Lee el resumen y el estado de tandas/FECHA. Continúa desde la etapa pendiente, conservando las correcciones y los resultados existentes. No empieces una tanda nueva.
+**Resultado:** la biblioteca actualizada y el informe de descarga.
 
-## Corregir un texto
+### Sacar ideas con lo que ya tienes guardado
 
-En la conversación de esa tanda, escribe **`@`**, selecciona **`redactar-notes`** y envía:
+**Selecciona con `@`:** `ideas-para-notes`.
 
-> Revisa la Note N02 de esta tanda: quiero una apertura más concreta y una explicación más breve del ejemplo. Conserva las otras dos Notes y mis cambios anteriores.
+> Trabaja con la biblioteca guardada y crea una tanda nueva con cinco enfoques distintos. Lee completas las fuentes elegidas y abre las ideas para revisarlas conmigo. No descargues de nuevo ni redactes todavía las Notes.
+
+**Resultado:** un documento de ideas en una tanda nueva. Necesita que haya newsletters completas guardadas.
+
+### Redactar desde las ideas que acabas de revisar
+
+En la conversación de esas ideas, selecciona **`@` → `redactar-notes`**.
+
+> Utiliza las ideas de esta tanda, incorporando mis correcciones. Elige tres enfoques diferentes, lee sus originales completos y redacta las Notes. Guárdalas junto a las ideas y abre el resultado. No publiques nada.
+
+**Resultado:** el documento de Notes dentro de la misma tanda.
+
+## Continuar otro día
+
+La opción más sencilla es volver a la conversación donde estabas revisando los textos y pedir:
+
+> Continúa con la misma tanda desde donde lo dejamos. Revisa sus archivos, conserva mis correcciones y dime qué queda pendiente antes de seguir.
+
+Si abres **otra conversación del mismo proyecto**, selecciona **`@` → `flujo-newsletter`** y envía:
+
+> Muéstrame las tandas guardadas y un breve resumen de cada una. Quiero elegir cuál continuar. Todavía no crees una tanda nueva ni modifiques los textos.
+
+Cuando Work te muestre las opciones, señala la que quieras y pide que continúe. Así puedes localizarla sin tener que recordar el nombre de la carpeta.
+
+## Utilizar tu propia newsletter
+
+El ejemplo está preparado para Aina Lluna. Para cambiarlo, abre un proyecto con una carpeta nueva y sigue primero [la preparación del README](../README.md#usarlo-desde-chatgpt-work). Después, antes de la primera descarga, envía lo siguiente. **Sustituye `[ENLACE]` por la dirección de tu publicación en Substack**:
+
+> Adapta este ejemplo a mi publicación: [ENLACE]. Actualiza la configuración y las referencias de autor, audiencia y tono de las skills. Usa mis artículos completos para identificar mi voz; no mantengas las indicaciones de voz de Aina Lluna. Configura la primera descarga para los últimos doce meses. Si esta carpeta ya contiene newsletters de otra publicación, detente y ayúdame a utilizar una carpeta separada. Todavía no ejecutes el flujo; dime cuándo está preparado.
+
+Cuando Work confirme la preparación, utiliza [la petición del flujo entero](#probar-el-flujo-entero).
 
 ## Programación opcional
 
-Úsalo después de probar el flujo manualmente. Escribe esta petición en Work e indica el nombre `flujo-newsletter` en el texto para que quede guardado en la programación. Puedes seleccionarla también con `@`. Este repositorio no instala ninguna tarea programada.
+**Úsalo después de revisar una prueba manual.** Envía esta petición en Work dentro del mismo proyecto; el nombre de la skill se incluye en el texto para que forme parte de la tarea guardada:
 
 > Crea una tarea programada local llamada «Preparar Notes de newsletters». Cada sábado a las 19:45, zona Europe/Madrid, debe ejecutar la skill flujo-newsletter dentro de este proyecto usando su configuración. Comprueba primero si existe una tarea equivalente para no duplicarla. Al terminar, deja un resumen de añadidas, actualizadas, ideas, Notes y pendientes. Si falla la descarga, conserva los archivos y continúa con las fuentes completas disponibles señalando la limitación. No publiques nada. Muéstrame la tarea y su próxima ejecución.
 
-Para usar archivos locales, deja el ordenador encendido y la aplicación abierta. La interfaz y disponibilidad de programación dependen del entorno: [documentación oficial](https://learn.chatgpt.com/docs/automations).
+**Qué debes comprobar:** que Work te muestre la tarea, su horario y la próxima ejecución. Las tareas que utilizan archivos locales necesitan el ordenador encendido y la aplicación abierta. Puedes revisar su estado en **Scheduled / Tareas programadas**. [Documentación oficial de programación](https://learn.chatgpt.com/docs/automations).
+
+## Si algo no sale como esperabas
+
+### Si la skill no aparece
+
+Comprueba que has abierto el mismo proyecto en el que preparaste el ejemplo. Si acabas de prepararlo, prueba en una conversación nueva de ese proyecto.
+
+Si sigue sin aparecer, envía esta petición sin seleccionar ninguna skill:
+
+> Comprueba si las cuatro skills del ejemplo están en la carpeta principal de este proyecto y si puedo seleccionarlas con @. Revisa en particular .agents/skills/flujo-newsletter/SKILL.md y sus skills asociadas. Dime qué falta o qué tengo que hacer en la interfaz. Todavía no ejecutes el flujo.
+
+Si los archivos están disponibles pero el selector sigue sin mostrarlos, puedes pedir:
+
+> Lee .agents/skills/flujo-newsletter/SKILL.md y aplica su procedimiento junto con las skills que referencia. Ejecuta una tanda completa y abre las Notes para revisión. No publiques nada.
+
+Esta petición permite señalar el archivo de instrucciones directamente; no hace que aparezca por sí solo en el menú.
+
+### Dice «sin novedades» y se detiene
+
+Si ya hay newsletters completas guardadas, envía:
+
+> Revisa por qué te has detenido. La falta de newsletters nuevas no debe impedir preparar ideas y Notes con la biblioteca guardada. Continúa la misma tanda si hay fuentes completas disponibles; si no las hay, explica qué no has podido recuperar.
+
+### No puedes encontrar el documento
+
+Envía:
+
+> Dime en qué carpeta has guardado esta tanda, muéstrame los enlaces a sus ideas, Notes y resumen, y abre las Notes para revisarlas.
+
+Si Work dice que la apertura quedó en cola, utiliza el enlace al archivo que te haya dado.
+
+### No tienes la opción de trabajar en local
+
+Esta guía necesita que Work acceda a la carpeta del ordenador. Revisa la disponibilidad de tu aplicación y cuenta en la [guía oficial de Work](https://learn.chatgpt.com/docs/get-started-with-work). Una conversación que no tenga acceso a esa carpeta no podrá guardar allí los resultados de este ejemplo.
